@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import Navbar from '@/components/Navbar'
-import Card from '@/components/Card'
+import NotesList from '@/components/NotesList'
 
 export default function Home() {
   return (
@@ -12,11 +12,11 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className="bg-gray-900">
-        <div className="container mx-auto h-screen px-6 relative">
+        <div className="container mx-auto px-6 relative">
           <Navbar />
 
-          <div className="pt-32">
-            <Card />
+          <div className="py-32">
+            <NotesList />
           </div>
         </div>
       </main>
