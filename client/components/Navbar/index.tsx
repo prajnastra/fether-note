@@ -1,29 +1,19 @@
-import { useState } from 'react'
 import Button from '../Button'
 
 export default function Navbar() {
-  const [open, setOpen] = useState(false)
-
   return (
-    <div className="shadow-md w-full fixed top-0 left-0">
-      <div className="container md:flex items-center justify-between bg-white py-4 mx-auto px-4">
-        <div className="font-bold text-2xl cursor-pointer flex items-center text-gray-800">
-          FetherNote
-        </div>
+    <nav className="bg-white px-2 sm:px-4 py-4 dark:bg-gray-900 fixed w-full z-20 top-0 left-0 border-b border-gray-200 dark:border-gray-600">
+      <div className="container flex flex-wrap items-center justify-between mx-auto px-4">
+        <a href="/" className="flex items-center">
+          <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
+            FetherNote
+          </span>
+        </a>
 
-        <div
-          onClick={() => setOpen(!open)}
-          className="text-3xl absolute right-8 top-6 cursor-pointer md:hidden"
-        ></div>
-
-        <div
-          className={`md:flex md:items-center md:pb-0 pb-12 absolute md:static bg-white md:z-auto z-[-1] left-0 w-full md:w-auto md:pl-0 pl-9 transition-all duration-500 ease-in ${
-            open ? 'top-20 ' : 'top-[-490px]'
-          }`}
-        >
-          <Button label="Add Note" />
+        <div className="flex md:order-2">
+          <Button label="Paste Note" />
         </div>
       </div>
-    </div>
+    </nav>
   )
 }

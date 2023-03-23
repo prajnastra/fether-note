@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import Navbar from '@/components/Navbar'
+import Card from '@/components/Card'
 
 export default function Home() {
   return (
@@ -10,8 +11,14 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className="container mx-auto h-screen px-6 relative">
-        <Navbar />
+      <main className="bg-gray-900">
+        <div className="container mx-auto h-screen px-6 relative">
+          <Navbar />
+
+          <div className="pt-32">
+            <Card />
+          </div>
+        </div>
       </main>
     </>
   )
