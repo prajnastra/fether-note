@@ -1,3 +1,5 @@
+import { FaPlus } from 'react-icons/fa'
+
 import Button from '../Button'
 
 export default function Navbar() {
@@ -11,7 +13,9 @@ export default function Navbar() {
         </a>
 
         <div className="flex md:order-2">
-          <Button label="Paste Note" />
+          <Button label="Paste Note">
+            <FaPlus className="w-4 h-4 ml-2 -mr-1 inline" />
+          </Button>
         </div>
       </div>
     </nav>
