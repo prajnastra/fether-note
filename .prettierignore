@@ -1,0 +1,9 @@
+# Ignore artifacts:
+server
+build
+dist
+coverage
+node_modules
+.next
+.husky
+.git
