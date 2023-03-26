@@ -6,10 +6,19 @@ use diesel::prelude::*;
 use dotenv::dotenv;
 use std::env;
 
-pub fn enstablish_connection() -> MysqlConnection {
-    dotenv().ok();
-
-    let database_url = env::var("DATABASE_URL").expect("DATABASE_URL must be set");
-    MysqlConnection::establish(&database_url)
-        .unwrap_or_else(|_| panic!("Error connecting to {}", database_url))
+pub struct MysqlRepo {
+    connection: MysqlConnection
 }
+
+impl MysqlRepo {
+    pub fn init() -> Self {
+        dotenv().ok();
+
+        let database_url = env::var("DATABASE_URL").expect("DATABASE_URL must be set");
+        let connection = MysqlConnection::establish(&database_url)
+            .unwrap_or_else(|_| panic!("Error connecting to {}", database_url));
+
+        MysqlRepo { connection }
+    }
+}
+
