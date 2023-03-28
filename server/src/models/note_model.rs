@@ -1,8 +1,14 @@
-use diesel::prelude::*;
+use diesel::{ Insertable, Queryable };
+use serde::{ Deserialize, Serialize };
+use crate::schema::notes;
 
-#[derive(Queryable)]
-pub struct Plant {
-    pub note_id: i32,
-    pub title: Option<String>,
-    pub description: Option<String>,
+
+#[derive(Serialize, Deserialize, Queryable, Debug, Insertable)]
+#[diesel(table_name = notes)]
+pub struct Note {
+    pub id: i32,
+    pub title: String,
+    pub description: String
 }
+
+

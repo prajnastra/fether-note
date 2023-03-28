@@ -1,0 +1,5 @@
+[global.databases]
+url = "mysql://root:Abhi%239083242266%23@localhost:3306/diesel_demo"
+
+[global.databases.mysql_db]
+url = "mysql://root:Abhi%239083242266%23@localhost:3306/diesel_demo"

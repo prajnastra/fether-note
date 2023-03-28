@@ -1,24 +1,17 @@
-extern crate diesel;
-extern crate dotenv;
-
-use diesel::mysql::MysqlConnection;
 use diesel::prelude::*;
-use dotenv::dotenv;
-use std::env;
+use rocket_sync_db_pools::{ diesel::MysqlConnection, database };
+use server::schema::notes::dsl::*;
+use crate::models::note_model::Note;
+// use rocket::serde::json::Json;
 
-pub struct MysqlRepo {
-    connection: MysqlConnection
+#[database("mysql_db")]
+pub struct MyDatabase(MysqlConnection);
+
+pub fn fetch_notes(conn: &mut MysqlConnection) -> QueryResult<Vec<Note>> {
+    notes
+        .limit(5)
+        .load::<Note>(conn)
 }
 
-impl MysqlRepo {
-    pub fn init() -> Self {
-        dotenv().ok();
-
-        let database_url = env::var("DATABASE_URL").expect("DATABASE_URL must be set");
-        let connection = MysqlConnection::establish(&database_url)
-            .unwrap_or_else(|_| panic!("Error connecting to {}", database_url));
-
-        MysqlRepo { connection }
-    }
-}
-
+// pub fn create_note(conn: &mut MysqlConnection, new_note: Json<Note>) -> QueryResult<Note> {
+// }
