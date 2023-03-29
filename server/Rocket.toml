@@ -1,5 +1,3 @@
-[global.databases]
-url = "mysql://root:Abhi%239083242266%23@localhost:3306/diesel_demo"
-
-[global.databases.mysql_db]
-url = "mysql://root:Abhi%239083242266%23@localhost:3306/diesel_demo"
+[global.databases.pg_db]
+url = "postgresql://floki:9083@147.182.161.215:5432/notesDB"
+timeout = 120

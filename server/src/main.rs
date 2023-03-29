@@ -11,11 +11,11 @@ use api::note_api::{
     get_notes,
     add_note
 };
-use repository::mysql_repo::MyDatabase;
+use repository::pg_repo::Db;
 
 #[launch]
 fn rocket() -> _ {
     rocket::build()
-        .attach(MyDatabase::fairing())
+        .attach(Db::fairing())
         .mount("/", routes![get_notes, add_note])
 }
