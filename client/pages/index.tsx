@@ -15,7 +15,7 @@ export default function Home() {
         <div className="container mx-auto px-6 relative">
           <Navbar />
 
-          <div className="py-32">
+          <div className="py-32 min-h-screen">
             <NotesList />
           </div>
         </div>
