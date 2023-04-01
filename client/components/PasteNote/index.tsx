@@ -5,18 +5,18 @@ import { useForm, SubmitHandler } from 'react-hook-form'
 import { addNoteAPI } from '@/api'
 
 interface Inputs {
-  id: string
+  id: number
   title: string
   description: string
 }
 
-const nanoid = customAlphabet('1234567890abcdef', 10)
+const nanoid = customAlphabet('1234567890', 2)
 
 export default function PasteNote() {
   const { trigger, isMutating } = useSWRMutation('/', addNoteAPI)
   const { register, handleSubmit } = useForm<Inputs>({
     defaultValues: {
-      id: nanoid(),
+      id: parseInt(nanoid()),
     },
   })
 
